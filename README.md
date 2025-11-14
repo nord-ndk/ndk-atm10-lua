@@ -5,7 +5,7 @@
 ---
 **Kernel**
 ````shell
-curl https://raw.githubusercontent.com/nord-ndk/ndk-atm10-lua/refs/heads/master/kernel.lua
+wget https://raw.githubusercontent.com/nord-ndk/ndk-atm10-lua/refs/heads/master/kernel.lua
 ````
 
 ---
@@ -13,6 +13,6 @@ curl https://raw.githubusercontent.com/nord-ndk/ndk-atm10-lua/refs/heads/master/
 **Startup**
 
 ````shell
-curl https://raw.githubusercontent.com/nord-ndk/ndk-atm10-lua/refs/heads/master/startup.lua
+wget https://raw.githubusercontent.com/nord-ndk/ndk-atm10-lua/refs/heads/master/startup.lua
 ````
 

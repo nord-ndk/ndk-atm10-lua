@@ -14,7 +14,7 @@ local function connect()
   end
 
   -- Handshake inicial
-  ws.send(json.serialise({
+  ws.send(textutils.serializeJSON({
     type = "hello",
     computerId = computerId,
   }))
@@ -102,7 +102,7 @@ local function run()
     if ws then
       local event, url, msg = os.pullEvent()
       if event == "websocket_message" then
-        local ok, data = pcall(json.unserialise, msg)
+        local ok, data = pcall(textutils.unserializeJSON, msg)
         if ok and type(data) == "table" then
           if data.type == "call" then
             handleCall(data)

@@ -2,8 +2,6 @@
 local serverUrl = "ws://atm10-wss.ndk.center/cc"  -- IP de tu Nest
 local computerId = os.getComputerID()
 
-local json = textutils
-
 local function connect()
   print("Conectando a "..serverUrl)
   local ws, err = http.websocket(serverUrl)
@@ -91,7 +89,7 @@ local function handleCall(msg)
     reply.result = result
   end
 
-  ws.send(json.serialise(reply))
+  ws.send(textutils.serializeJSON(reply))
 end
 
 local function run()

@@ -67,11 +67,18 @@ local function handleCall(msg)
     if type(fn) ~= "function" then
       err = "fn no encontrada: "..tostring(lib).."."..tostring(fnName)
     else
-      local ok, res = pcall(fn, table.unpack(args))
-      if not ok then
-        err = res
+      local returns = { pcall(fn, table.unpack(args)) }
+      local okcall = table.remove(returns, 1)
+      if not okcall then
+        err = returns[1]
       else
-        result = res
+        -- If the function returned multiple values, send them as an array.
+        -- If only one value, send it directly to keep backward compatibility.
+        if #returns > 1 then
+          result = returns
+        else
+          result = returns[1]
+        end
       end
     end
   end

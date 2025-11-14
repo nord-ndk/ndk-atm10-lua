@@ -1,5 +1,5 @@
 -- /kernel.lua
-local serverUrl = "ws://192.168.1.100:3000/cc"  -- IP de tu Nest
+local serverUrl = "ws://atm10-wss.ndk.center/cc"  -- IP de tu Nest
 local computerId = os.getComputerID()
 
 local json = textutils
